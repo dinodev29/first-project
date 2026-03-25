@@ -6,7 +6,6 @@ services:
     runtime: node-20
     buildCommand: cd backend && npm install
     startCommand: cd backend && npm start
-    memoryMB: 512
     
     envVars:
       - key: NODE_ENV
