@@ -3,30 +3,13 @@ services:
     name: dino-mail-app
     env: node
     plan: free
-    runtime: node-20
     buildCommand: cd backend && npm install
     startCommand: cd backend && npm start
     
     envVars:
       - key: NODE_ENV
         value: production
-      - key: MONGODB_URI
-        scope: project
-      - key: MAILGUN_API_KEY
-        scope: project
-      - key: MAILGUN_DOMAIN
-        scope: project
-      - key: FRONTEND_URL
-        scope: project
       - key: PORT
         value: 10000
     
     autoDeploy: true
-    
-    headers:
-      - path: /static/*
-        name: Cache-Control
-        value: public, max-age=3600
-      - path: /api/*
-        name: Cache-Control
-        value: no-cache
